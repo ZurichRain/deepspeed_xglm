@@ -167,6 +167,7 @@ if hasattr(args, "deepspeed") and args.deepspeed and args.deepspeed_config is no
 initialize_distributed(args)
 config.model_dir = args.load_model_dir
 config.save_train_model_file = args.save_train_model_file
+config.device = torch.cuda.current_device()
 
 print('using model {}'.format(args.model_type))
 if args.model_type == 'xglm':    
